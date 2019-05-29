@@ -16,5 +16,6 @@ namespace CsForum.Data
         Task UpdateForumTitle(int forumId, string newTitle);
         Task UpdateForumDescription(int forumId, string newDescription);
 
+
     }
 }
