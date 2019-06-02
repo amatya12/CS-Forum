@@ -19,4 +19,8 @@
     <ProjectReference Include="..\CsForum.Service\CsForum.Service.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Areas\Identity\Services\" />
+  </ItemGroup>
+
 </Project>

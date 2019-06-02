@@ -51,7 +51,7 @@ namespace CsForum.Controllers
                 AuthorId = post.User.Id,
                 AuthorRating = post.User.Rating,
                 Title = post.Title,
-
+                Author = post.User.UserName,
                 DatePosted = post.Created.ToString(),
                 RepliesCount = post.Replies.Count(),
                 Forum = BuildForumListing(post)
