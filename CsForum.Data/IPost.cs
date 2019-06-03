@@ -17,5 +17,6 @@ namespace CsForum.Data
         Task EditPostContent(int id , string newContent);
         Task AddReply(PostReply reply);
         IEnumerable<Post> GetPostsByForums(int id);
+        IEnumerable<Post> GetLatestPosts(int numberOfPosts);
     }
 }

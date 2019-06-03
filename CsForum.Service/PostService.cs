@@ -40,7 +40,10 @@ namespace CsForum.Service
 
         public IEnumerable<Post> GetAll()
         {
-            throw new NotImplementedException();
+            return _context.Posts
+                            .Include(p => p.Forum)
+                            .Include(p=>p.Replies)
+                            .Include(a => a.User);
         }
 
         public Post GetById(int id)
@@ -56,6 +59,11 @@ namespace CsForum.Service
         public IEnumerable<Post> GetFilteredPosts(string searchQuery)
         {
             throw new NotImplementedException();
+        }
+
+        public IEnumerable<Post> GetLatestPosts(int numberOfPosts)
+        {
+            return GetAll().OrderByDescending(p => p.Created).Take(numberOfPosts);
         }
 
         public IEnumerable<Post> GetPostsByForums(int id)
