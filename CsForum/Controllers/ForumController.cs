@@ -14,9 +14,10 @@ namespace CsForum.Controllers
     {
         private readonly IPost _postService;
         private readonly IForum _forumService;
-        public ForumController(IForum forumService)
+        public ForumController(IForum forumService, IPost postService)
         {
             _forumService = forumService;
+            _postService = postService;
         }
 
 
@@ -39,12 +40,14 @@ namespace CsForum.Controllers
             return View(model);
         }
 
-        public IActionResult Topic(int id)
+        public IActionResult Topic(int id, string searchQuery)
         {
-            var forum = _forumService.GetById(id);
-            //  var posts = _postService.GetPostsByForums(id);
-            var posts = forum.Posts;
 
+            var forum = _forumService.GetById(id);
+            var posts = new List<Post>();
+
+            posts = _postService.GetFilteredPosts(forum, searchQuery).ToList();
+            //  var posts = _postService.GetPostsByForums(id);
             var postListings = posts.Select(post => new PostListingModel
             {
                 ID = post.Id,
@@ -66,6 +69,11 @@ namespace CsForum.Controllers
             return View(model);
         }
 
+        [HttpPost]
+        public IActionResult Search(int id, string searchQuery)
+        {
+            return RedirectToAction("Topic", new {id, searchQuery });
+        }
         private ForumViewModel BuildForumListing(Post post)
         {
             var forum = post.Forum;

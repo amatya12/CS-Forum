@@ -56,9 +56,14 @@ namespace CsForum.Service
                          .First();
         }
 
-        public IEnumerable<Post> GetFilteredPosts(string searchQuery)
+        public IEnumerable<Post> GetFilteredPosts(Forum forum, string searchQuery)
         {
-            throw new NotImplementedException();
+            var posts = forum.Posts;
+            return String.IsNullOrEmpty(searchQuery)
+                ?
+                posts
+                :
+                posts.Where(post => post.Title.Contains(searchQuery) || post.Content.Contains(searchQuery));
         }
 
         public IEnumerable<Post> GetLatestPosts(int numberOfPosts)
