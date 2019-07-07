@@ -11,5 +11,7 @@ namespace CsForum.Models.Forum
         public ForumViewModel Forum { get; set; }
 
         public IEnumerable<PostListingModel> Posts { get; set; }
+
+        public string SearchQuery { get; set; }
     }
 }

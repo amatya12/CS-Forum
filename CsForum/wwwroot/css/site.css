@@ -248,7 +248,7 @@ body {
     background-color:#c62828 !important;
     color:#fff !important;
     transition: ease inherit 0.1s;
-    border-radius:0px !important;
+    border-radius:100px !important;
 }
 .btn-newPost:hover {
     transition:ease inherit 0.1s;
@@ -267,6 +267,17 @@ body {
     transition: ease-in 0.1s;
     background-color: #00897B !important;
     color: #fff !important;
+}
+.btn-forumSearch {
+    background:none !important;
+    border:none;
+    padding:0px !important;
+   
+}
+.btn-forumSearch:hover {
+    transition:ease-in 0.1s;
+    
+    color:deepskyblue !important;
 }
 
 
@@ -373,4 +384,22 @@ body {
     .carousel-caption {
         display: none;
     }
+}
+
+/*Topic page styling*/
+
+.searchBar {
+    padding: 3px 5px 2px 9px;
+    margin: 8px;
+    background-color: #333;
+    width: 20%;
+    transition: ease .3s;
+    border: none;
+    border-radius: 100px;
+}
+.searchBar:focus {
+    color:black;
+    width:40%;
+    background-color:#fff;
+
 }
