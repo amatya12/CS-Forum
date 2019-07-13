@@ -66,6 +66,11 @@ namespace CsForum.Service
                 posts.Where(post => post.Title.Contains(searchQuery) || post.Content.Contains(searchQuery));
         }
 
+        public IEnumerable<Post> GetFilteredPosts(string searchQuery)
+        {
+            return _context.Posts.Where(post => post.Title.Contains(searchQuery) || post.Content.Contains(searchQuery));
+        }
+
         public IEnumerable<Post> GetLatestPosts(int numberOfPosts)
         {
             return GetAll().OrderByDescending(p => p.Created).Take(numberOfPosts);
