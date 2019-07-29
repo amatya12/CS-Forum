@@ -11,6 +11,7 @@ namespace CsForum.Service
     class ApplicationUserService : IApplicationUser
     {
         private readonly ApplicationDbContext _context;
+
         public ApplicationUserService(ApplicationDbContext context)
         {
             _context = context;
@@ -38,5 +39,7 @@ namespace CsForum.Service
             _context.Update(user);
             await _context.SaveChangesAsync();
         }
+
+        
     }
 }

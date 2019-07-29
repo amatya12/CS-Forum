@@ -8,7 +8,7 @@ namespace CsForum.Data
 {
    public  interface IApplicationUser
    {
-        IApplicationUser GetById(string id);
+        ApplicationUser GetById(string id);
         IEnumerable<ApplicationUser> GetAll();
         Task SetProfileImageAsync(string id, Uri uri);
         Task IncrementRating(string id, Type type);
